@@ -13,13 +13,26 @@ export class AppComponent {
   title = 'Helloworld';
   imageUrl = "../assets/bridgeLablogo.avif";
   url="https://www.bridgelabz.com/";
-  username:string='';
+  username:string="";
+  nameError:string="";
 
   ngOnInit(): void{
-    this.title= "Hello From BridgeLabz";
+    this.title= " From BridgeLabz";
   }
   onClick(event:Event){
   console.log("Button was clickede",event)
   window.open(this.url,"_blank");
+  }
+
+  onInput(){
+    const nameRegex = /^[A-Z][a-zA-Z\s]{2,}$/;
+  this.username = this.username.trim(); 
+
+    if (nameRegex.test(this.username)) {
+      this.nameError = "";
+    } else {
+      this.nameError = "Name is incorrect";
+    }
+
   }
 }

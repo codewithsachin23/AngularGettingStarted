@@ -1,8 +1,10 @@
 <div>
-  <h1>{{this.title}} {{username}}</h1>
+  <h1>Hello {{username}} {{title}}</h1>
   <img [src]="imageUrl"  (click)="onClick($event)" alt="Bridge lab logo url">
-
-  <input type="text" [(ngModel)]="username" placeholder="Enter your UserName">
+</div>
+<div>
+  <input type="text"  (input)="onInput()" [(ngModel)]="username" placeholder="Enter your UserName">
+  <span class="Error-output">{{nameError}}</span>
 </div>
 
 <router-outlet></router-outlet>
